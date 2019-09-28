@@ -1,0 +1,100 @@
+ {% extends 'base.html.twig' %}
+
+{% block title %} Acceuil {% endblock %}
+ {% block body %} 
+ <div class="p-1 pt-5 ">
+        <div class="flex justify-between">
+
+
+           {% for message in app.flashes('success') %}
+              <div class="flex flexbg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                <div>
+                <p class="font-bold">Successful Operation</p>
+                <p class="text-sm">{{ message }}</p>
+                </div>
+              </div>
+           {% endfor %}
+          {% for message in app.flashes('error') %}
+              <div class="flex flexbg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
+                <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                <div>
+                <p class="font-bold">Unsuccessful Operation</p>
+                <p class="text-sm">{{ message }}</p>
+                </div>
+              </div>
+          {% endfor %}
+          {% for message in app.flashes('warning') %}
+              <div class="flex flexbg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 px-4 py-3 shadow-md" role="alert">
+                <div class="py-1"><svg class="fill-current h-6 w-6 text-yellow-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                <div>
+                <p class="font-bold">Warning !</p>
+                <p class="text-sm">{{ message }}</p>
+                </div>
+              </div>
+          {% endfor %}
+
+
+        </div>
+     
+     
+
+
+    
+      </div>
+      <div class="flex justify-between content-start flex-wrap mx-auto">
+          
+            {% for post in posts %} 
+            <div class="md:w-1/3 rounded overflow-hidden shadow-lg my-2">
+              <img class="w-full overflow-hidden px-1" style="border-radius: 2%" src="{{ post.img }}" alt="Sunset in the mountains">
+              <div class="px-6 py-4">
+              <div class="flex justify-between">
+                  <p class="flex-auto text-xs ">
+                      {{ post.time|date('d-m-Y') }} - <i>By {{ post.user.fullname}}</i>
+                  </p>
+                  <div class="justify-between">
+                   {% if is_granted('edit',post) %}
+                    <a href="{{ path('blog_edit', {'id':post.id}) }}" class="text-green-600 font-medium mr-2">
+                     <i class="fas fa-edit"></i>
+                    </a>
+                    {% endif %}
+                    
+                  {% if is_granted('delete',post) %}
+                     <a href="{{ path('blog_delete', {'id':post.id}) }}" class=" text-red-600 font-medium">
+                       <i class="fas fa-trash"></i>
+                     </a>
+                  {% endif %}
+                   
+                  </div>
+                 
+              </div>
+             
+              <div class="font-bold text-xl mb-2">
+                <a href="{{ path('show_blog',{'slug':post.urldetail} ) }}">
+                    {{ post.title }} 
+                </a>
+             
+              
+              </div>
+              
+              <p class="text-gray-700 text-base">
+                 
+                    {{ post.body|length > 200 ? post.body|slice(0, 200) ~ ' ...' : post.body  }}
+              </p>
+              </div>
+             
+           </div>
+           {% endfor %}
+
+        
+          
+          {{ knp_pagination_render(posts) }}
+        </div>
+    
+    
+    
+ </div>
+    
+
+ {% endblock %}
+      

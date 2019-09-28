@@ -1,0 +1,27 @@
+ {% extends 'base.html.twig' %}
+
+{% block title %} Ajouter Un Article {% endblock %}
+ {% block body %} 
+ <div class="p-10 ">
+
+      <div class="flex justify-center content-start flex-wrap mx-auto">
+          
+          <div class="w-full max-w-xl">
+           <label class="block text-gray-700 text-xl font-bold mb-2" for="username">
+        Ajouter un Article
+      </label>
+  <form method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-64">
+    {{form(form)}}
+  </form>
+  
+</div>
+        
+        </div>
+    
+    
+    
+ </div>
+    
+
+ {% endblock %}
+      

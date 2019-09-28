@@ -1,0 +1,30 @@
+ {% extends 'base.html.twig' %}
+
+{% block title %} Acceuil {% endblock %}
+ {% block body %} 
+ <div class="p-10 ">
+
+      <div class="flex justify-center content-start flex-wrap mx-auto">
+          
+           <div class="w-full max-w-4xl ">
+              <img class="w-full overflow-hidden px-1" style="border-radius: 2%" src="{{ post.img }}" alt="Sunset in the mountains">
+              <h1 class="font-sans text-4xl font-black mb-4">{{ post.title }}</h1>
+              <p class="text-grey mb-3">Written by Haitam Ghalem on <i>{{post.time|date('d/m/Y')}}</i>.</p>
+              <p class="text-grey-darkest mb-6 leading-tight">
+                {{ post.body }}
+              </p>
+              <div>
+                <a href="#" class="text-black">5 COMMENTS</a>
+              </div>
+
+             </div>
+
+        </div>
+    
+    
+    
+ </div>
+    
+
+ {% endblock %}
+      

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Register {% endblock %}
+ {% block body %} 
+ <div class="px-10 py-3 ">
+
+    <div class="lg:flex lg:justify-center ">
+        <div class="lg:w-1/2 block lg:flex bg-white lg:shadow-lg rounded-lg">
+            <div class="w-full lg:w-1/3 flex lg:border-r border-gray-200">
+                <div class="m-auto rounded-full">
+                    <a class="flex items-base pt-10 lg:p-2 -mb-10 lg:-mb-0">
+                        <img src="https://parsinta.com/logo/blue.png" alt="" class="w-12 lg:w-48">
+                        <div class="block lg:hidden text-2xl text-primary hover:text-primary tracking-wide font-semibold uppercase">Parsinta</div>
+                    </a>
+                </div>
+            </div>
+           
+            <div class="w-full lg:w-2/3 px-6 py-10">
+                <div class="mb-4 font-light tracking-widest text-2xl">REGISTER</div>
+                <form method="POST">
+                   {{form(form)}}
+                </form>
+            </div>
+        </div>
+    </div>
+     
+        
+</div>
+    
+    
+    
+ </div>
+    
+
+ {% endblock %}
+      
+
+
+
