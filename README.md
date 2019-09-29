@@ -1,6 +1,6 @@
 
 <p align="center"><a href="https://symfony.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/ghalemhaitam/SymfonyWithTailwindFrameworks/master/Blog.PNG">
+    <img src="https://raw.githubusercontent.com/ghalemhaitam/SymfonyWithTailwindFrameworks/master/blog-screencapture.png">
 </a></p>
 
 <p align="center"><a href="https://symfony.com" target="_blank">
