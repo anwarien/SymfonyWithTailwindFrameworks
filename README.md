@@ -1,3 +1,8 @@
+
+<p align="center"><a href="https://symfony.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/ghalemhaitam/SymfonyWithTailwindFrameworks/master/Blog.PNG">
+</a></p>
+
 <p align="center"><a href="https://symfony.com" target="_blank">
     <img src="https://symfony.com/logos/symfony_black_02.svg">
 </a></p>
